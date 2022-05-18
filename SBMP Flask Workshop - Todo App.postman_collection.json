@@ -1,0 +1,462 @@
+{
+	"info": {
+		"_postman_id": "43a424ee-a4a1-421c-9662-4cb48ce7e8ce",
+		"name": "SBMP Flask Workshop - Todo App",
+		"description": "This collection details all APIs exposed by the Flask service for the Todo app created during the SBMP Flask Workshop.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01. Hello World",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						""
+					]
+				},
+				"description": "GET request to echo Hello World to the user and test for simple service availability."
+			},
+			"response": []
+		},
+		{
+			"name": "02. Hello World with Path Param",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/Alice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"Alice"
+					]
+				},
+				"description": "GET request with a Path Param to identify currently logged in user and to echo a personalized Hello World message."
+			},
+			"response": []
+		},
+		{
+			"name": "03. Create Todo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"First Sample Todo\",\r\n    \"Description\": \"This is the first sample todo that I am creating\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/todo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"todo"
+					]
+				},
+				"description": "POST request that creates a new Todo item and adds it to the database. The created entity is returned in the response."
+			},
+			"response": [
+				{
+					"name": "03. Create Todo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Title\": \"First Sample Todo\",\r\n    \"Description\": \"This is the first sample todo that I am creating\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/todo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"todo"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "175"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.6.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 May 2022 17:31:51 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"Description\": \"This is the first sample todo that I am creating\",\n        \"DueDate\": \"None\",\n        \"Title\": \"First Sample Todo\",\n        \"_is_done\": 0,\n        \"id\": 5\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "04. Update Todo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"First Sample Todo Edited\",\r\n    \"Description\": \"This is the first sample todo that I am editing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/todo/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"todo",
+						"5"
+					]
+				},
+				"description": "PUT request that is used to update an existing todo item in the database. The updated entity is returned in the response."
+			},
+			"response": [
+				{
+					"name": "04. Update Todo",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Title\": \"First Sample Todo Edited\",\r\n    \"Description\": \"This is the first sample todo that I am editing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/todo/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"todo",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.6.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 May 2022 17:35:48 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"Description\": \"This is the first sample todo that I am editing\",\n        \"DueDate\": \"None\",\n        \"Title\": \"First Sample Todo Edited\",\n        \"_is_done\": 0,\n        \"id\": 5\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "05. List all Todo items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/todo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"todo"
+					]
+				},
+				"description": "GET request that lists all todo items currently stored in the database."
+			},
+			"response": [
+				{
+					"name": "05. List all Todo items",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/todo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"todo"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "592"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.6.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 May 2022 17:39:55 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"Description\": \"Wash your clothes\",\n        \"DueDate\": \"None\",\n        \"Title\": \"Laundry\",\n        \"_is_done\": 0,\n        \"id\": 2\n    },\n    {\n        \"Description\": \"hear new PT album\",\n        \"DueDate\": \"None\",\n        \"Title\": \"music\",\n        \"_is_done\": 0,\n        \"id\": 3\n    },\n    {\n        \"Description\": \"watch The Northman and Still Walking\",\n        \"DueDate\": \"None\",\n        \"Title\": \"movie\",\n        \"_is_done\": 0,\n        \"id\": 4\n    },\n    {\n        \"Description\": \"This is the first sample todo that I am editing\",\n        \"DueDate\": \"None\",\n        \"Title\": \"First Sample Todo Edited\",\n        \"_is_done\": 0,\n        \"id\": 5\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "06. Get todo details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/todo/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"todo",
+						"5"
+					]
+				},
+				"description": "GET request that lists the details for a particular todo item stored in the database and identified by the item id passed as a path parameter to the API."
+			},
+			"response": [
+				{
+					"name": "06. Get todo details",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/todo/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"todo",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.6.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 May 2022 17:41:16 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"Description\": \"This is the first sample todo that I am editing\",\n        \"DueDate\": \"None\",\n        \"Title\": \"First Sample Todo Edited\",\n        \"_is_done\": 0,\n        \"id\": 5\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "07. Delete Todo item",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/todo/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"todo",
+						"5"
+					]
+				},
+				"description": "DELETE request that deletes a specific todo item from the database, identified by the id passed to the API as a path parameter. All remaining todo items are returned in the response."
+			},
+			"response": [
+				{
+					"name": "07. Delete Todo item",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/todo/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"todo",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "413"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.3 Python/3.6.0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 May 2022 17:42:34 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"Description\": \"Wash your clothes\",\n        \"DueDate\": \"None\",\n        \"Title\": \"Laundry\",\n        \"_is_done\": 0,\n        \"id\": 2\n    },\n    {\n        \"Description\": \"hear new PT album\",\n        \"DueDate\": \"None\",\n        \"Title\": \"music\",\n        \"_is_done\": 0,\n        \"id\": 3\n    },\n    {\n        \"Description\": \"watch The Northman and Still Walking\",\n        \"DueDate\": \"None\",\n        \"Title\": \"movie\",\n        \"_is_done\": 0,\n        \"id\": 4\n    }\n]"
+				}
+			]
+		}
+	]
+}
